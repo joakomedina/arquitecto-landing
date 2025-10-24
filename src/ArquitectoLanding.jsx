@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, Sun, Moon, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
+import logo from "./assets/logo_horizontal.png";
+
 
 // Nota: Usa Tailwind CSS. Si no lo tenés configurado, más abajo te dejo instrucciones rápidas.
 // Este componente es una landing de una sola página pensada para un arquitecto/estudio.
@@ -95,11 +97,15 @@ function Navbar({ onJump }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 md:px-8">
         <div className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 grid place-items-center font-semibold">AR</div>
-          <span className="text-sm font-semibold tracking-wide text-zinc-700 dark:text-zinc-200">Estudio de Arquitectura</span>
+          <img
+            src={logo}
+            alt="Logo del estudio"
+            className="h-12 md:h-30 w-auto object-contain"
+          />
         </div>
+
 
         <div className="hidden items-center gap-1 md:flex">
           <NavLink id="proyectos">Proyectos</NavLink>
