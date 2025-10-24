@@ -102,7 +102,7 @@ function Navbar({ onJump }) {
           <img
             src={logo}
             alt="Logo del estudio"
-            className="h-12 md:h-30 w-auto object-contain"
+            className="h-12 md:h-40 w-auto object-contain"
           />
         </div>
 
