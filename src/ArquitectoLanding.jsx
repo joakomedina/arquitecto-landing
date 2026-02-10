@@ -2,7 +2,13 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, Sun, Moon, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
 import logo from "./assets/logo_horizontal.png";
-
+import cocinaP02 from "./assets/proyectos/cocina-p02-01.jpg";
+import hab_aux from "./assets/proyectos/hab-aux-01.jpg";
+import banio_hab_principal from "./assets/proyectos/banio-hab-principal-p2_02.jpg";
+import banio_hab_auxiliar from "./assets/proyectos/banio-hab-aux.jpg";
+import parrillera from "./assets/proyectos/parrillera-01E.jpg";
+import fachada_principal from "./assets/proyectos/fachada-principal-01.jpg";
+import alfredo from "./assets/proyectos/alfredo.jpg";
 
 // Nota: Usa Tailwind CSS. Si no lo tenés configurado, más abajo te dejo instrucciones rápidas.
 // Este componente es una landing de una sola página pensada para un arquitecto/estudio.
@@ -11,51 +17,51 @@ import logo from "./assets/logo_horizontal.png";
 const PROJECTS = [
   {
     id: 1,
-    title: "Casa Patio",
-    category: "Vivienda",
+    title: "Cocina en Apartamento P02",
+    category: "Cocina",
     year: 2024,
-    location: "Sevilla, España",
-    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop",
-  },
+    location: "Caracas, Venezuela",
+    img: cocinaP02,
+  }     ,
   {
     id: 2,
-    title: "Loft Industrial",
+    title: "Habitación Auxiliar",
     category: "Interiorismo",
     year: 2023,
-    location: "Madrid, España",
-    img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop",
+    location: "Caracas, Venezuela",
+    img: hab_aux,
   },
   {
     id: 3,
-    title: "Oficinas Nexus",
-    category: "Comercial",
+    title: "Baño Habitación Principal",
+    category: "Interiorismo",
     year: 2025,
-    location: "Barcelona, España",
-    img: "https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?q=80&w=1600&auto=format&fit=crop",
+    location: "Caracas, Venezuela",
+    img: banio_hab_principal,
   },
   {
     id: 4,
-    title: "Rehabilitación Torre",
-    category: "Rehabilitación",
+    title: "Baño Habitación Auxiliar",
+    category: "Interiorismo",
     year: 2022,
-    location: "Valencia, España",
-    img: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop",
+    location: "Caracas, Venezuela",
+    img: banio_hab_auxiliar,
   },
   {
     id: 5,
-    title: "Vivienda entre medianeras",
+    title: "Zona de Ocio",
     category: "Vivienda",
     year: 2021,
-    location: "Bilbao, España",
-    img: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop",
+    location: "Caracas, Venezuela",
+    img: parrillera,
   },
   {
     id: 6,
-    title: "Showroom Materia",
-    category: "Comercial",
+    title: "Fachada Vivienda Unifamiliar",
+    category: "Vivienda",
     year: 2024,
-    location: "Málaga, España",
-    img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
+    location: "Caracas, Venezuela",
+    img: fachada_principal,
   },
 ];
 
@@ -304,7 +310,7 @@ function About() {
           className="order-1 md:order-2 md:col-span-2"
         >
           <img
-            src="https://images.unsplash.com/photo-1487956382158-bb926046304a?q=80&w=1200&auto=format&fit=crop"
+            src={alfredo}
             alt="Retrato profesional"
             className="aspect-[3/4] w-full rounded-3xl object-cover shadow-lg"
           />
