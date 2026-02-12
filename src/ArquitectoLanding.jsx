@@ -1,71 +1,14 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, Sun, Moon, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
+import { PROJECTS, CATEGORIES } from "./data/projects";
 import logo from "./assets/logo_horizontal.png";
-import cocinaP02 from "./assets/proyectos/cocina-p02-01.jpg";
-import hab_aux from "./assets/proyectos/hab-aux-01.jpg";
-import banio_hab_principal from "./assets/proyectos/banio-hab-principal-p2_02.jpg";
-import banio_hab_auxiliar from "./assets/proyectos/banio-hab-aux.jpg";
-import parrillera from "./assets/proyectos/parrillera-01E.jpg";
-import fachada_principal from "./assets/proyectos/fachada-principal-01.jpg";
-import alfredo from "./assets/proyectos/AlfredoArveloHD.jpg";
+import alfredo from "./assets/proyectos/AlfredoArvelo.jpg";
+import emailjs from "@emailjs/browser";
 
 // Nota: Usa Tailwind CSS. Si no lo tenés configurado, más abajo te dejo instrucciones rápidas.
 // Este componente es una landing de una sola página pensada para un arquitecto/estudio.
 // Incluye: Navbar sticky, modo claro/oscuro, Hero, Portafolio con filtros, Sobre mí, Servicios, Contacto y Footer.
-
-const PROJECTS = [
-  {
-    id: 1,
-    title: "Cocina en Apartamento P02",
-    category: "Cocina",
-    year: 2024,
-    location: "Caracas, Venezuela",
-    img: cocinaP02,
-  }     ,
-  {
-    id: 2,
-    title: "Habitación Auxiliar",
-    category: "Interiorismo",
-    year: 2023,
-    location: "Caracas, Venezuela",
-    img: hab_aux,
-  },
-  {
-    id: 3,
-    title: "Baño Habitación Principal",
-    category: "Interiorismo",
-    year: 2025,
-    location: "Caracas, Venezuela",
-    img: banio_hab_principal,
-  },
-  {
-    id: 4,
-    title: "Baño Habitación Auxiliar",
-    category: "Interiorismo",
-    year: 2022,
-    location: "Caracas, Venezuela",
-    img: banio_hab_auxiliar,
-  },
-  {
-    id: 5,
-    title: "Zona de Ocio",
-    category: "Vivienda",
-    year: 2021,
-    location: "Caracas, Venezuela",
-    img: parrillera,
-  },
-  {
-    id: 6,
-    title: "Fachada Vivienda Unifamiliar",
-    category: "Vivienda",
-    year: 2024,
-    location: "Caracas, Venezuela",
-    img: fachada_principal,
-  },
-];
-
-const CATEGORIES = ["Todos", "Vivienda", "Interiorismo", "Comercial", "Rehabilitación"];
 
 
 function useTheme() {
@@ -220,6 +163,7 @@ function Hero({ onCTAClick }) {
 
 function Portfolio() {
   const [active, setActive] = useState("Todos");
+  const [selectedProject, setSelectedProject] = useState(null);
   const items = useMemo(
     () => (active === "Todos" ? PROJECTS : PROJECTS.filter((p) => p.category === active)),
     [active]
@@ -259,7 +203,8 @@ function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="group overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+            onClick={() => setSelectedProject(p)}
+            className="group overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <img src={p.img} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
@@ -274,6 +219,86 @@ function Portfolio() {
           </motion.article>
         ))}
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setSelectedProject(null)}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white dark:bg-zinc-900"
+          >
+            <div className="relative">
+              <img src={selectedProject.img} alt={selectedProject.title} className="h-64 w-full object-cover" />
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute right-4 top-4 rounded-full bg-white p-2 shadow-lg hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="p-6 md:p-8">
+              <h2 className="text-3xl font-semibold text-zinc-900 dark:text-zinc-100">{selectedProject.title}</h2>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{selectedProject.category} • {selectedProject.year}</p>
+              <p className="mt-4 text-zinc-600 dark:text-zinc-300">{selectedProject.location}</p>
+
+              {selectedProject.intro && (
+                <div className="mt-6 rounded-2xl bg-zinc-50 p-4 dark:bg-zinc-800">
+                  <p className="text-sm text-zinc-700 dark:text-zinc-200">{selectedProject.intro}</p>
+                </div>
+              )}
+
+              {selectedProject.facts && (
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Datos del proyecto</h3>
+                  <ul className="mt-3 grid gap-2 text-sm text-zinc-600 dark:text-zinc-300">
+                    {Object.entries(selectedProject.facts).map(([key, value]) => (
+                      <li key={key} className="flex justify-between">
+                        <span className="font-medium">{key}:</span>
+                        <span>{value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedProject.contentSections && (
+                <div className="mt-6 space-y-4">
+                  {selectedProject.contentSections.map((section, idx) => (
+                    <div key={idx}>
+                      <h4 className="font-semibold text-zinc-900 dark:text-zinc-100">{section.title}</h4>
+                      {section.body && <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{section.body}</p>}
+                      {section.images && section.images.length > 0 && (
+                        <div className="mt-3 grid grid-cols-2 gap-3">
+                          {section.images.slice(0, 2).map((src, i) => (
+                            <img
+                              key={i}
+                              src={src}
+                              alt={`${selectedProject.title} - ${section.title} ${i + 1}`}
+                              className="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-inset ring-zinc-200 dark:ring-zinc-800"
+                            />
+                          ))}
+                        </div>
+                      )}
+
+                      {section.bullets && (
+                        <ul className="mt-2 space-y-1 text-sm text-zinc-600 dark:text-zinc-300">
+                          {section.bullets.map((bullet, bidx) => (
+                            <li key={bidx} className="list-inside list-disc">
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }
@@ -374,6 +399,31 @@ function Services() {
 }
 
 function Contact() {
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState("idle"); // idle | success | error
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("idle");
+
+    try {
+      await emailjs.sendForm(
+        "service_h1gwn5m",
+        "template_58mdo6e",
+        e.target,
+        "Z_TMa58rLcqQyjlEJ"
+      );
+      setStatus("success");
+      e.target.reset();
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contacto" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
       <div className="grid gap-10 md:grid-cols-5">
@@ -381,22 +431,55 @@ function Contact() {
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">Contacto</h2>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Contame tu proyecto. Te responderé en 24–48h.</p>
 
-          <form
-            className="mt-6 grid gap-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("¡Gracias! Este es un formulario de ejemplo. Conéctalo a tu backend o usa Formspree.");
-            }}
-          >
+          <form className="mt-6 grid gap-4" onSubmit={sendEmail}>
             <div className="grid gap-4 sm:grid-cols-2">
-              <input required className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none ring-0 placeholder:text-zinc-400 focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white" placeholder="Nombre" />
-              <input required type="email" className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white" placeholder="Email" />
+              <input
+                name="user_name"
+                required
+                className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none ring-0 placeholder:text-zinc-400 focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white"
+                placeholder="Nombre"
+              />
+              <input
+                name="user_email"
+                required
+                type="email"
+                className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white"
+                placeholder="Email"
+              />
             </div>
-            <input className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white" placeholder="Asunto (opcional)" />
-            <textarea required className="min-h-[130px] rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white" placeholder="Mensaje" />
-            <button type="submit" className="inline-flex w-fit items-center gap-2 rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90 dark:bg-white dark:text-zinc-900">
-              Enviar mensaje <ArrowRight size={18} />
+
+            <input
+              name="subject"
+              className="rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white"
+              placeholder="Asunto (opcional)"
+            />
+
+            <textarea
+              name="message"
+              required
+              className="min-h-[130px] rounded-2xl border border-zinc-300 bg-white p-3 text-sm outline-none focus:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:focus:border-white"
+              placeholder="Mensaje"
+            />
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="inline-flex w-fit items-center gap-2 rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-zinc-900"
+            >
+              {loading ? "Enviando..." : "Enviar mensaje"} <ArrowRight size={18} />
             </button>
+
+            {status === "success" && (
+              <div className="rounded-2xl bg-green-50 p-4 text-sm text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-950/40 dark:text-green-200 dark:ring-green-900">
+                ✅ Mensaje enviado. Te responderemos pronto.
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="rounded-2xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-inset ring-red-200 dark:bg-red-950/40 dark:text-red-200 dark:ring-red-900">
+                ❌ No se pudo enviar el mensaje. Intenta nuevamente o escríbenos por email.
+              </div>
+            )}
           </form>
         </div>
 
@@ -405,7 +488,7 @@ function Contact() {
             <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Datos de contacto</h3>
             <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
               <li className="flex items-center gap-3"><Phone size={16} /> +34 600 000 000</li>
-              <li className="flex items-center gap-3"><Mail size={16} /> estudio@arquitecto.com</li>
+              <li className="flex items-center gap-3"><Mail size={16} /> alfredoarvelo@gmail.com</li>
               <li className="flex items-center gap-3"><MapPin size={16} /> Calle Ejemplo 123, Madrid</li>
             </ul>
             <div className="mt-5 flex items-center gap-3">
