@@ -8,7 +8,7 @@ import banio_hab_principal from "./assets/proyectos/banio-hab-principal-p2_02.jp
 import banio_hab_auxiliar from "./assets/proyectos/banio-hab-aux.jpg";
 import parrillera from "./assets/proyectos/parrillera-01E.jpg";
 import fachada_principal from "./assets/proyectos/fachada-principal-01.jpg";
-import alfredo from "./assets/proyectos/alfredo.jpg";
+import alfredo from "./assets/proyectos/AlfredoArveloHD.jpg";
 
 // Nota: Usa Tailwind CSS. Si no lo tenés configurado, más abajo te dejo instrucciones rápidas.
 // Este componente es una landing de una sola página pensada para un arquitecto/estudio.
