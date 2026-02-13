@@ -309,10 +309,10 @@ function About() {
             precisión técnica.
           </p>
           <ul className="mt-6 grid gap-3 text-sm text-zinc-600 dark:text-zinc-300 sm:grid-cols-2">
-            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Premio COAM 2023 – Vivienda</li>
-            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Passivhaus Designer</li>
-            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">BIM (Revit) & Render 3D</li>
-            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Dirección de obra</li>
+            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Aruitectura - Interiorismo</li>
+            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Dirección de Obra</li>
+            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Asesoría</li>
+            <li className="rounded-xl bg-zinc-50 p-3 ring-1 ring-inset ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">Profesor Universitario</li>
           </ul>
         </motion.div>
         <motion.div
