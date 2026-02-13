@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, Sun, Moon, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
 import { PROJECTS, CATEGORIES } from "./data/projects";
 import logo from "./assets/logo_horizontal.png";
 import alfredo from "./assets/proyectos/AlfredoArvelo.jpg";
@@ -12,20 +12,15 @@ import emailjs from "@emailjs/browser";
 
 
 function useTheme() {
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light"
-  );
+  const [theme, setTheme] = useState("dark");
 
   React.useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") root.classList.add("dark");
-    else root.classList.remove("dark");
-  }, [theme]);
+    document.documentElement.classList.add("dark"); // siempre oscuro
+  }, []);
 
-return { theme, setTheme };
+  return { theme, setTheme };
 }
+
 
 function Navbar({ onJump }) {
   const [open, setOpen] = useState(false);
@@ -61,14 +56,6 @@ function Navbar({ onJump }) {
           <NavLink id="sobre">Sobre mí</NavLink>
           <NavLink id="servicios">Servicios</NavLink>
           <NavLink id="contacto">Contacto</NavLink>
-          <div className="mx-2 h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
-          <button
-            aria-label="Cambiar tema"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="rounded-xl p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
         </div>
 
         <button className="p-2 md:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menú">
@@ -149,6 +136,7 @@ function Hero({ onCTAClick }) {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="relative"
         >
+          // cambiar imagen de inicio por una del arquitecto o un proyecto destacado
           <img
             src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop"
             alt="Arquitectura contemporánea"
@@ -487,13 +475,13 @@ function Contact() {
           <div className="rounded-3xl border border-zinc-200/80 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
             <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Datos de contacto</h3>
             <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
-              <li className="flex items-center gap-3"><Phone size={16} /> +34 600 000 000</li>
+              <li className="flex items-center gap-3"><Phone size={16} /> +58 414 154 8002</li>
               <li className="flex items-center gap-3"><Mail size={16} /> alfredoarvelo@gmail.com</li>
-              <li className="flex items-center gap-3"><MapPin size={16} /> Calle Ejemplo 123, Madrid</li>
+              <li className="flex items-center gap-3"><MapPin size={16} /> CC Paseo Las Mercedes. Nivel Mercado. Local MCB3. Caracas, Venezuela</li>
             </ul>
             <div className="mt-5 flex items-center gap-3">
               <a href="#" aria-label="Instagram" className="rounded-xl p-2 ring-1 ring-inset ring-zinc-200 hover:bg-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800"><Instagram size={18} /></a>
-              <a href="#" aria-label="LinkedIn" className="rounded-xl p-2 ring-1 ring-inset ring-zinc-200 hover:bg-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800"><Linkedin size={18} /></a>
+              <a href="https://www.linkedin.com/in/alfredo-arvelo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-xl p-2 ring-1 ring-inset ring-zinc-200 hover:bg-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800"><Linkedin size={18} /></a>
             </div>
           </div>
         </div>
