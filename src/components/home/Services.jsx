@@ -147,7 +147,7 @@ export function Services({ compact = false, extraPackages = [] }) {
             )}
 
             {!compact && (
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {items.map((s, i) => (
                     <motion.div
                         key={s.title}
@@ -177,11 +177,11 @@ export function Services({ compact = false, extraPackages = [] }) {
                     </h3>
                 </div>
 
-                <div className={`mt-16 grid items-start gap-8 ${packages.length > 2 ? "md:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2"}`}>
+                <div className={`mt-16 grid items-start gap-8 ${packages.length > 2 ? "lg:grid-cols-2 xl:grid-cols-3" : "lg:grid-cols-2"}`}>
                     {packages.map((pkg) => (
                         (() => {
                             const defaultCardClass = pkg.recommended
-                                ? "bg-[#D4AF37] p-4 md:p-5 ring-amber-300 text-zinc-950 shadow-xl scale-105 z-10"
+                                ? "bg-[#D4AF37] p-4 md:p-5 ring-amber-300 text-zinc-950 shadow-xl md:scale-105 z-10"
                                 : "bg-[#F0F8FF] p-4 md:p-5 ring-zinc-200 text-zinc-900 hover:shadow-lg dark:bg-[#F0F8FF] dark:ring-zinc-200 dark:text-zinc-900";
                             const cardClass = pkg.cardClass || defaultCardClass;
                             return (
@@ -204,7 +204,7 @@ export function Services({ compact = false, extraPackages = [] }) {
                                         <img
                                             src={pkg.slides[getSlideIndex(pkg.id, pkg.slides.length)]}
                                             alt={`${pkg.name} - vista ${getSlideIndex(pkg.id, pkg.slides.length) + 1}`}
-                                            className="h-56 w-full object-cover"
+                                            className="h-48 w-full object-cover sm:h-56"
                                         />
                                         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10" />
                                         <button

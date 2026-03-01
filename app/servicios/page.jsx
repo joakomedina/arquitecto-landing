@@ -80,7 +80,7 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-12 grid max-w-5xl gap-6 px-4 md:grid-cols-3 md:px-8">
+      <section className="mx-auto mt-12 grid max-w-5xl gap-6 px-4 lg:grid-cols-3 md:px-8">
         <article className="rounded-2xl border border-zinc-200/70 p-5 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Remodelación integral</h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -103,7 +103,7 @@ export default function ServiciosPage() {
 
       <section className="mx-auto mt-12 max-w-5xl px-4 md:px-8">
         <h2 className="font-serif text-3xl font-medium text-zinc-900 dark:text-zinc-100">Cómo trabajamos</h2>
-        <ol className="mt-5 grid gap-4 text-sm text-zinc-600 dark:text-zinc-400 md:grid-cols-2">
+        <ol className="mt-5 grid gap-4 text-sm text-zinc-600 dark:text-zinc-400 lg:grid-cols-2">
           <li className="rounded-xl bg-zinc-50 p-4 dark:bg-zinc-900">
             1. Diagnóstico inicial del inmueble y definición de alcance.
           </li>
