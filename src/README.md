@@ -5,10 +5,10 @@
 Landing page profesional para estudio de arquitectura desarrollada con:
 
 - React
-- Vite
+- Next.js (static export)
 - Tailwind CSS
 - Framer Motion
-- EmailJS
+- WhatsApp API Link
 - Lucide Icons
 
 Incluye:
@@ -120,23 +120,13 @@ function useTheme() {
 Botón visual se mantiene pero no altera el estado.
 
 📬 Formulario de Contacto
-Implementado con EmailJS.
+Implementado con enlace directo a WhatsApp.
 
-Instalación:
-
-nginx
-Copiar código
-npm install @emailjs/browser
 Implementación:
-
 js
 Copiar código
-await emailjs.sendForm(
-  "service_h1gwn5m",
-  "template_58mdo6e",
-  e.target,
-  "PUBLIC_KEY"
-);
+const whatsappUrl = `https://wa.me/584141548002?text=${encodeURIComponent(mensaje)}`;
+window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 Estados manejados:
 
 idle
@@ -162,11 +152,11 @@ Copiar código
 🎨 Tecnologías Utilizadas
 Tecnología	Uso
 React	Framework base
-Vite	Bundler
+Next.js	Framework y build estático
 Tailwind CSS	Estilos
 Framer Motion	Animaciones
 Lucide React	Iconografía
-EmailJS	Envío de correos sin backend
+WhatsApp	Canal de contacto directo
 
 📈 Estado Actual
 ✅ 5 proyectos cargados
@@ -214,11 +204,11 @@ Narrativa profesional
 🔐 Consideraciones
 No hay backend propio.
 
-EmailJS gestiona envío de formularios.
+El contacto se inicia por WhatsApp desde el cliente, sin credenciales embebidas.
 
 Las imágenes están embebidas en build.
 
-No hay rutas individuales todavía.
+Existen rutas individuales para servicios, proyectos, sobre y contacto.
 
 🏁 Conclusión
 Actualmente el proyecto es una landing profesional funcional, visualmente sólida y preparada para escalar hacia una arquitectura SEO completa mediante páginas individuales por proyecto.

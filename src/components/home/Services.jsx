@@ -1,4 +1,6 @@
-﻿import { useState } from "react";
+﻿"use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
     Home,
@@ -9,114 +11,143 @@ import {
     ChevronLeft,
     ChevronRight,
 } from "lucide-react";
-import kitchen01 from "../../data/fotos-projects/remodelacion-cocina/1.COCINA.jpg";
-import kitchen02 from "../../data/fotos-projects/remodelacion-cocina/2.COCINA.jpg";
-import kitchen03 from "../../data/fotos-projects/remodelacion-cocina/3.COCINA.jpg";
-import kitchen04 from "../../data/fotos-projects/remodelacion-cocina/4.COCINA.jpg";
+import kitchen01 from "../../data/fotos-projects/cocina-estandar/cocina-estandar.jpeg";
+import kitchen02 from "../../data/fotos-projects/cocina-estandar/coina-estandar-2.jpeg";
+import consult01 from "../../data/fotos-projects/remodelacion-cocina/1.COCINA.jpg";
+import consult02 from "../../data/fotos-projects/remodelacion-cocina/2.COCINA.jpg";
+import consult03 from "../../data/fotos-projects/remodelacion-cocina/3.COCINA.jpg";
+import consult04 from "../../data/fotos-projects/remodelacion-cocina/4.COCINA.jpg";
 
-export function Services() {
-    const [slideIndex, setSlideIndex] = useState(0);
-    const kitchenSlides = [kitchen01, kitchen02, kitchen03, kitchen04];
+const resolveImageSrc = (asset) => (typeof asset === "string" ? asset : asset?.src || "");
+
+export function Services({ compact = false, extraPackages = [] }) {
+    const [slideIndexes, setSlideIndexes] = useState({});
+    const kitchenSlides = [kitchen01, kitchen02].map(resolveImageSrc);
+    const consultSlides = [consult01, consult02, consult03, consult04].map(resolveImageSrc);
     const whatsappNumber = "584141548002";
 
     const items = [
         {
-            title: "Diseno arquitectonico",
+            title: "Diseño arquitectónico",
             icon: <Home className="h-6 w-6" />,
             desc: "Proyectos de obra nueva y ampliaciones, desde anteproyecto hasta ejecutivos.",
         },
         {
             title: "Interiorismo",
             icon: <Ruler className="h-6 w-6" />,
-            desc: "Reformas integrales, mobiliario a medida y direccion de obra.",
+            desc: "Reformas integrales, mobiliario a medida y dirección de obra.",
         },
         {
             title: "Comercial y Oficinas",
             icon: <Building2 className="h-6 w-6" />,
-            desc: "Diseno de espacios de trabajo y retail alineados con tu marca.",
+            desc: "Diseño de espacios de trabajo y retail alineados con tu marca.",
         },
         {
             title: "Licencias y tramitaciones",
             icon: <Factory className="h-6 w-6" />,
-            desc: "Asesoramiento tecnico, memorias y legalizaciones para tu proyecto.",
+            desc: "Asesoramiento técnico, memorias y legalizaciones para tu proyecto.",
         },
     ];
 
-    const packages = [
+    const basePackages = [
         {
-            name: "Cocina Llave en Mano Estandar (Modelo Prados)",
-            price: "Desde USD 3.600",
-            subtitle: "Diseno cerrado basado en un sistema probado, con alcance y tiempos definidos.",
+            id: "llave-en-mano",
+            name: "Cocina Llave en Mano Estándar (Modelo Prados)",
+            price: "Desde USD 12.000",
+            subtitle: "Diseño cerrado basado en un sistema probado, con alcance y tiempos definidos.",
             slides: kitchenSlides,
             includes: [
-                "Levantamiento tecnico y ajuste del modelo al espacio",
+                "Levantamiento técnico y ajuste del modelo al espacio",
                 "Mobiliario completo (bajos, altos, columnas y panelados)",
-                "Cubierta y peninsula/isla segun layout aplicable",
-                "Iluminacion funcional y decorativa del paquete",
-                "Coordinacion y ejecucion llave en mano",
+                "Península/isla según layout aplicable (sin tope)",
+                "Iluminación funcional y decorativa del paquete",
+                "Coordinación y ejecución llave en mano",
                 "Checklist y entrega final",
             ],
             applies: [
                 "Cocinas de 12 a 14 metros lineales",
                 "Planta rectangular o similar",
-                "Punto de agua y descarga en posicion existente",
+                "Punto de agua y descarga en posición existente",
                 "Sin cambios estructurales mayores",
             ],
             excludes: [
-                "Electrodomesticos premium fuera del set estandar",
+                "Electrodomésticos premium fuera del set estándar",
+                "Tope/cubierta (cuarzo, granito o similar)",
+                "Grifería",
                 "Demoliciones estructurales",
-                "Reubicaciones mayores de plomeria, gas o electricidad",
-                "Obras fuera del area de cocina",
+                "Reubicaciones mayores de plomería, gas o electricidad",
+                "Obras fuera del área de cocina",
             ],
-            timeline: "7 a 10 semanas (diseno 2, fabricacion 4-6, instalacion 1-2)",
+            timeline: "7 a 10 semanas (diseño 2, fabricación 4-6, instalación 1-2)",
             cta: "Ver si mi espacio aplica",
             ctaHref: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "Hola Alfredo, quiero validar si mi cocina aplica al paquete Cocina Llave en Mano Estandar. Te comparto medidas y fotos."
+                "Hola Alfredo, quiero validar si mi cocina aplica al paquete Cocina Llave en Mano Estándar. Te comparto medidas y fotos."
             )}`,
             recommended: true,
         },
         {
+            id: "a-consultar",
             name: "Proyecto A Consultar",
             price: "A cotizar",
-            subtitle: "Solucion personalizada para requerimientos fuera de estandar.",
+            subtitle: "Solución personalizada para requerimientos fuera de estándar.",
+            slides: consultSlides,
             includes: [
-                "Diagnostico del caso y requerimientos",
-                "Alcance tecnico a medida",
-                "Propuesta economica personalizada",
+                "Diagnóstico del caso y requerimientos",
+                "Alcance técnico a medida",
+                "Propuesta económica personalizada",
                 "Plan de trabajo por fases",
             ],
             applies: [
-                "Distribuciones no estandar",
+                "Distribuciones no estándar",
                 "Cambios de instalaciones o estructura",
-                "Personalizacion alta de materiales y mobiliario",
+                "Personalización alta de materiales y mobiliario",
             ],
-            timeline: "A definir segun alcance",
-            cta: "Solicitar diagnostico",
+            timeline: "A definir según alcance",
+            cta: "Solicitar diagnóstico",
             ctaHref: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "Hola Alfredo, quiero solicitar un diagnostico para mi proyecto de cocina. Te comparto contexto y requerimientos."
+                "Hola Alfredo, quiero solicitar un diagnóstico para mi proyecto de cocina. Te comparto contexto y requerimientos."
             )}`,
             recommended: false,
         },
     ];
+    const packages = [...basePackages, ...extraPackages].map((pkg) => ({
+        ...pkg,
+        slides: pkg.slides?.map(resolveImageSrc),
+    }));
 
-    const nextSlide = (total) => {
-        setSlideIndex((prev) => (prev + 1) % total);
+    const getSlideIndex = (pkgId, total) => {
+        const current = slideIndexes[pkgId] ?? 0;
+        if (current >= total) return 0;
+        return current;
     };
 
-    const prevSlide = (total) => {
-        setSlideIndex((prev) => (prev - 1 + total) % total);
+    const nextSlide = (pkgId, total) => {
+        setSlideIndexes((prev) => ({
+            ...prev,
+            [pkgId]: ((prev[pkgId] ?? 0) + 1) % total,
+        }));
+    };
+
+    const prevSlide = (pkgId, total) => {
+        setSlideIndexes((prev) => ({
+            ...prev,
+            [pkgId]: ((prev[pkgId] ?? 0) - 1 + total) % total,
+        }));
     };
 
     return (
-        <section id="servicios" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
-            <div className="mb-12 md:text-center">
+        <section id="servicios" className={`mx-auto max-w-7xl px-4 md:px-8 ${compact ? "py-10" : "py-20"}`}>
+            {!compact && (
+                <div className="mb-12 md:text-center">
                 <h2 className="font-serif text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">Servicios</h2>
                 <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-300 md:mx-auto">
-                    Acompano cada proyecto con metodologia clara, comunicacion transparente y foco en el detalle.
+                    Acompaño cada proyecto con metodología clara, comunicación transparente y foco en el detalle.
                 </p>
-            </div>
+                </div>
+            )}
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {!compact && (
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((s, i) => (
                     <motion.div
                         key={s.title}
@@ -133,26 +164,30 @@ export function Services() {
                         <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{s.desc}</p>
                     </motion.div>
                 ))}
-            </div>
+                </div>
+            )}
 
-            <div className="mt-24">
+            <div className={compact ? "mt-0" : "mt-24"}>
                 <div className="mb-10 text-center">
                     <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                         Propuesta de Valor
                     </span>
                     <h3 className="mt-4 font-serif text-3xl font-medium text-zinc-900 dark:text-zinc-100">
-                        Planes para empezar rapido
+                        Planes para empezar rápido
                     </h3>
                 </div>
 
-                <div className="mt-16 grid items-start gap-8 md:grid-cols-2">
+                <div className={`mt-16 grid items-start gap-8 ${packages.length > 2 ? "md:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2"}`}>
                     {packages.map((pkg) => (
+                        (() => {
+                            const defaultCardClass = pkg.recommended
+                                ? "bg-[#D4AF37] p-4 md:p-5 ring-amber-300 text-zinc-950 shadow-xl scale-105 z-10"
+                                : "bg-[#F0F8FF] p-4 md:p-5 ring-zinc-200 text-zinc-900 hover:shadow-lg dark:bg-[#F0F8FF] dark:ring-zinc-200 dark:text-zinc-900";
+                            const cardClass = pkg.cardClass || defaultCardClass;
+                            return (
                         <div
                             key={pkg.name}
-                            className={`relative flex flex-col rounded-3xl ring-1 transition-all ${pkg.recommended
-                                ? "bg-[#D4AF37] p-4 md:p-5 ring-amber-300 text-zinc-950 shadow-xl scale-105 z-10"
-                                : "bg-[#F0F8FF] p-4 md:p-5 ring-zinc-200 text-zinc-900 hover:shadow-lg dark:bg-[#F0F8FF] dark:ring-zinc-200 dark:text-zinc-900"
-                                }`}
+                            className={`relative flex flex-col rounded-3xl ring-1 transition-all ${cardClass}`}
                         >
                             {pkg.recommended && (
                                 <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-sm">
@@ -167,14 +202,14 @@ export function Services() {
                                 <div className="mb-4">
                                     <div className="relative overflow-hidden rounded-2xl">
                                         <img
-                                            src={pkg.slides[slideIndex]}
-                                            alt={`Cocina modelo estandar - vista ${slideIndex + 1}`}
+                                            src={pkg.slides[getSlideIndex(pkg.id, pkg.slides.length)]}
+                                            alt={`${pkg.name} - vista ${getSlideIndex(pkg.id, pkg.slides.length) + 1}`}
                                             className="h-56 w-full object-cover"
                                         />
                                         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10" />
                                         <button
                                             type="button"
-                                            onClick={() => prevSlide(pkg.slides.length)}
+                                            onClick={() => prevSlide(pkg.id, pkg.slides.length)}
                                             className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-zinc-900 shadow-md hover:bg-white"
                                             aria-label="Foto anterior"
                                         >
@@ -182,7 +217,7 @@ export function Services() {
                                         </button>
                                         <button
                                             type="button"
-                                            onClick={() => nextSlide(pkg.slides.length)}
+                                            onClick={() => nextSlide(pkg.id, pkg.slides.length)}
                                             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-zinc-900 shadow-md hover:bg-white"
                                             aria-label="Foto siguiente"
                                         >
@@ -194,9 +229,11 @@ export function Services() {
                                             <button
                                                 key={idx}
                                                 type="button"
-                                                onClick={() => setSlideIndex(idx)}
+                                                onClick={() =>
+                                                    setSlideIndexes((prev) => ({ ...prev, [pkg.id]: idx }))
+                                                }
                                                 aria-label={`Ir a foto ${idx + 1}`}
-                                                className={`h-2.5 w-2.5 rounded-full transition ${idx === slideIndex
+                                                className={`h-2.5 w-2.5 rounded-full transition ${idx === getSlideIndex(pkg.id, pkg.slides.length)
                                                     ? "bg-white dark:bg-zinc-900"
                                                     : "bg-white/40 dark:bg-zinc-900/40"
                                                     }`}
@@ -268,9 +305,12 @@ export function Services() {
                                 </button>
                             )}
                         </div>
+                            );
+                        })()
                     ))}
                 </div>
             </div>
         </section>
     );
 }
+

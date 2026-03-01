@@ -1,25 +1,39 @@
+﻿"use client";
+
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { ArrowRight, Phone, Mail, MapPin, Instagram, Linkedin } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin, Linkedin } from "lucide-react";
 
 export function Contact() {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState("idle");
+    const whatsappNumber = "584141548002";
 
-    const sendEmail = async (e) => {
+    const sendMessage = (e) => {
         e.preventDefault();
         setLoading(true);
         setStatus("idle");
 
         try {
-            await emailjs.sendForm(
-                "service_h1gwn5m",
-                "template_58mdo6e",
-                e.target,
-                "Z_TMa58rLcqQyjlEJ"
-            );
+            const formData = new FormData(e.currentTarget);
+            const name = (formData.get("user_name") || "").toString().trim();
+            const email = (formData.get("user_email") || "").toString().trim();
+            const subject = (formData.get("subject") || "").toString().trim();
+            const message = (formData.get("message") || "").toString().trim();
+
+            const whatsappText = [
+                "Hola Alfredo, te contacto desde la web.",
+                name ? `Nombre: ${name}` : "",
+                email ? `Email: ${email}` : "",
+                subject ? `Asunto: ${subject}` : "",
+                message ? `Mensaje: ${message}` : "",
+            ]
+                .filter(Boolean)
+                .join("\n");
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
             setStatus("success");
-            e.target.reset();
+            e.currentTarget.reset();
         } catch (err) {
             console.error(err);
             setStatus("error");
@@ -29,15 +43,15 @@ export function Contact() {
     };
 
     return (
-        <section id="contacto" className="mx-auto max-w-7xl px-4 py-20 md:px-8 bg-white dark:bg-zinc-950 transition-colors">
+        <section id="contacto" className="mx-auto max-w-7xl bg-white px-4 py-20 transition-colors dark:bg-zinc-950 md:px-8">
             <div className="grid gap-12 lg:grid-cols-5">
                 <div className="lg:col-span-3">
                     <h2 className="font-serif text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">Contacto</h2>
                     <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                        ¿Tenés un proyecto en mente? Escribime y conversemos sobre cómo hacerlo realidad.
+                        ¿Tienes un proyecto en mente? Escríbeme y conversemos sobre cómo hacerlo realidad.
                     </p>
 
-                    <form className="mt-8 grid gap-6" onSubmit={sendEmail}>
+                    <form className="mt-8 grid gap-6" onSubmit={sendMessage}>
                         <div className="grid gap-6 sm:grid-cols-2">
                             <div className="group">
                                 <input
@@ -82,16 +96,16 @@ export function Contact() {
                                 disabled={loading}
                                 className="group inline-flex items-center gap-2 bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
                             >
-                                {loading ? "Enviando..." : "Enviar mensaje"}
+                                {loading ? "Abriendo..." : "Enviar por WhatsApp"}
                                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                             </button>
                         </div>
 
                         {status === "success" && (
-                            <p className="text-sm text-green-600 dark:text-green-400">✅ Mensaje enviado con éxito.</p>
+                            <p className="text-sm text-green-600 dark:text-green-400">Se abrió WhatsApp con tu mensaje listo para enviar.</p>
                         )}
                         {status === "error" && (
-                            <p className="text-sm text-red-600 dark:text-red-400">❌ Error al enviar. Por favor intenta de nuevo.</p>
+                            <p className="text-sm text-red-600 dark:text-red-400">No se pudo abrir WhatsApp. Por favor, intenta de nuevo.</p>
                         )}
                     </form>
                 </div>
@@ -125,8 +139,10 @@ export function Contact() {
                                 <div>
                                     <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Estudio</p>
                                     <p className="text-zinc-900 dark:text-zinc-200">
-                                        CC Paseo Las Mercedes<br />
-                                        Nivel Mercado, Local MCB3<br />
+                                        CC Paseo Las Mercedes
+                                        <br />
+                                        Nivel Mercado, Local MCB3
+                                        <br />
                                         Caracas, Venezuela
                                     </p>
                                 </div>
@@ -134,8 +150,11 @@ export function Contact() {
                         </ul>
 
                         <div className="mt-10 flex gap-4">
-                            <SocialLink href="#" icon={<Instagram size={20} />} label="Instagram" />
-                            <SocialLink href="https://www.linkedin.com/in/alfredo-arvelo" icon={<Linkedin size={20} />} label="LinkedIn" />
+                            <SocialLink
+                                href="https://www.linkedin.com/in/alfredo-arvelo"
+                                icon={<Linkedin size={20} />}
+                                label="LinkedIn"
+                            />
                         </div>
                     </div>
                 </div>

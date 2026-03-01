@@ -1,5 +1,11 @@
+﻿"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import heroImage from "../../data/fotos-projects/loft-manhattan/COCINA_1.33.jpg";
+
+const resolveImageSrc = (asset) => (typeof asset === "string" ? asset : asset?.src || "");
 
 export function Hero({ onCTAClick }) {
     return (
@@ -31,12 +37,12 @@ export function Hero({ onCTAClick }) {
                         >
                             Solicitar presupuesto <ArrowRight size={18} />
                         </button>
-                        <a
-                            href="#proyectos"
+                        <Link
+                            href="/proyectos/"
                             className="rounded-2xl px-5 py-3 text-sm font-medium text-zinc-800 ring-1 ring-inset ring-zinc-300 transition hover:bg-zinc-100 dark:text-zinc-200 dark:ring-zinc-700 dark:hover:bg-zinc-800"
                         >
                             Ver proyectos
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -48,8 +54,8 @@ export function Hero({ onCTAClick }) {
                     className="relative"
                 >
                     <img
-                        src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop"
-                        alt="Arquitectura contemporánea"
+                        src={resolveImageSrc(heroImage)}
+                        alt="Cocina proyecto Loft Manhattan"
                         className="h-full w-full rounded-3xl object-cover shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10 dark:ring-white/10" />
