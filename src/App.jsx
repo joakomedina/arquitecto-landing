@@ -22,7 +22,7 @@ function RefactorLanding() {
         <Hero onCTAClick={() => jump("contacto")} />
         <Portfolio />
         <About />
-        <Services />
+        <Services includePremium includeConsult={false} />
         <Contact />
       </div>
     </SiteWrapper>

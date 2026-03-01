@@ -2,9 +2,6 @@ import Link from "next/link";
 import { Services } from "../../src/components/home/Services";
 import { SiteWrapper } from "../../src/components/layout/SiteWrapper";
 import tvRoomCover from "../../src/data/fotos-projects/casa-prados/12.TVROOM-PORTADA.jpg";
-import loftKitchen01 from "../../src/data/fotos-projects/loft-manhattan/COCINA_1.33.jpg";
-import loftKitchen02 from "../../src/data/fotos-projects/loft-manhattan/COCINA_2.33.jpg";
-import loftKitchen03 from "../../src/data/fotos-projects/loft-manhattan/COCINA_3.33.jpg";
 
 export const metadata = {
   title: "Remodelación de apartamentos en Caracas",
@@ -24,38 +21,6 @@ export const metadata = {
 };
 
 export default function ServiciosPage() {
-  const loftKitchenPackage = {
-    id: "cocina-loft-manhattan",
-    name: "Cocina Loft Manhattan",
-    price: "Desde USD 18.000",
-    subtitle: "Versión premium inspirada en el proyecto Loft Manhattan, con diseño más personalizado.",
-    cardClass: "bg-[#ACE1AF] p-4 md:p-5 ring-emerald-300 text-zinc-900 hover:shadow-lg dark:bg-[#ACE1AF] dark:ring-emerald-300 dark:text-zinc-900",
-    slides: [loftKitchen01, loftKitchen02, loftKitchen03],
-    includes: [
-      "Diseño de cocina premium con ajuste al espacio",
-      "Mobiliario a medida de alta especificación",
-      "Iluminación técnica y decorativa",
-      "Coordinación e instalación integral",
-    ],
-    excludes: [
-      "Electrodomésticos premium fuera del set estándar",
-      "Tope/cubierta (cuarzo, granito o similar)",
-      "Grifería",
-      "Demoliciones estructurales",
-      "Reubicaciones mayores de plomería, gas o electricidad",
-      "Obras fuera del área de cocina",
-    ],
-    applies: [
-      "Proyectos residenciales con mayor nivel de personalización",
-      "Espacios que requieren acabados premium",
-    ],
-    timeline: "A definir según alcance",
-    cta: "Solicitar diagnóstico",
-    ctaHref:
-      "https://wa.me/584141548002?text=Hola%20Alfredo%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cocina%20Loft%20Manhattan%20desde%20USD%2018.000.",
-    recommended: false,
-  };
-
   return (
     <SiteWrapper>
       <section className="mx-auto max-w-5xl px-4 pt-10 md:px-8 md:pt-14">
@@ -120,7 +85,7 @@ export default function ServiciosPage() {
       </section>
 
       <div className="mt-12">
-        <Services compact extraPackages={[loftKitchenPackage]} />
+        <Services compact includePremium includeConsult />
       </div>
 
       <section className="mx-auto mb-20 mt-10 max-w-5xl px-4 md:px-8">
