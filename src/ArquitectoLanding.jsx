@@ -1,10 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Phone, Mail, MapPin, Instagram, Linkedin, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Linkedin, ArrowRight, Building2, Home, Factory, Ruler } from "lucide-react";
 import { PROJECTS, CATEGORIES } from "./data/projects";
 import logo from "./assets/logo_horizontal.png";
 import alfredo from "./assets/proyectos/AlfredoArvelo.jpg";
-import emailjs from "@emailjs/browser";
 
 // Nota: Usa Tailwind CSS. Si no lo tenés configurado, más abajo te dejo instrucciones rápidas.
 // Este componente es una landing de una sola página pensada para un arquitecto/estudio.
@@ -37,7 +36,7 @@ function Navbar({ onJump }) {
     </button>
   );
 
-  const { theme, setTheme } = useTheme();
+  useTheme();
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70">
@@ -390,21 +389,34 @@ function Services() {
 function Contact() {
   const [loading, setLoading] = React.useState(false);
   const [status, setStatus] = React.useState("idle"); // idle | success | error
+  const whatsappNumber = "584141548002";
 
-  const sendEmail = async (e) => {
+  const sendMessage = (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus("idle");
 
     try {
-      await emailjs.sendForm(
-        "service_h1gwn5m",
-        "template_58mdo6e",
-        e.target,
-        "Z_TMa58rLcqQyjlEJ"
-      );
+      const formData = new FormData(e.currentTarget);
+      const name = (formData.get("user_name") || "").toString().trim();
+      const email = (formData.get("user_email") || "").toString().trim();
+      const subject = (formData.get("subject") || "").toString().trim();
+      const message = (formData.get("message") || "").toString().trim();
+
+      const whatsappText = [
+        "Hola Alfredo, te contacto desde la web.",
+        name ? `Nombre: ${name}` : "",
+        email ? `Email: ${email}` : "",
+        subject ? `Asunto: ${subject}` : "",
+        message ? `Mensaje: ${message}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setStatus("success");
-      e.target.reset();
+      e.currentTarget.reset();
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -420,7 +432,7 @@ function Contact() {
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">Contacto</h2>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Contame tu proyecto. Te responderé en 24–48h.</p>
 
-          <form className="mt-6 grid gap-4" onSubmit={sendEmail}>
+          <form className="mt-6 grid gap-4" onSubmit={sendMessage}>
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 name="user_name"
@@ -455,18 +467,18 @@ function Contact() {
               disabled={loading}
               className="inline-flex w-fit items-center gap-2 rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-zinc-900"
             >
-              {loading ? "Enviando..." : "Enviar mensaje"} <ArrowRight size={18} />
+              {loading ? "Abriendo..." : "Enviar por WhatsApp"} <ArrowRight size={18} />
             </button>
 
             {status === "success" && (
               <div className="rounded-2xl bg-green-50 p-4 text-sm text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-950/40 dark:text-green-200 dark:ring-green-900">
-                ✅ Mensaje enviado. Te responderemos pronto.
+                Se abrió WhatsApp con tu mensaje listo para enviar.
               </div>
             )}
 
             {status === "error" && (
               <div className="rounded-2xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-inset ring-red-200 dark:bg-red-950/40 dark:text-red-200 dark:ring-red-900">
-                ❌ No se pudo enviar el mensaje. Intenta nuevamente o escríbenos por email.
+                No se pudo abrir WhatsApp. Por favor, intenta de nuevo.
               </div>
             )}
           </form>
@@ -481,7 +493,6 @@ function Contact() {
               <li className="flex items-center gap-3"><MapPin size={16} /> CC Paseo Las Mercedes. Nivel Mercado. Local MCB3. Caracas, Venezuela</li>
             </ul>
             <div className="mt-5 flex items-center gap-3">
-              <a href="#" aria-label="Instagram" className="rounded-xl p-2 ring-1 ring-inset ring-zinc-200 hover:bg-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800"><Instagram size={18} /></a>
               <a href="https://www.linkedin.com/in/alfredo-arvelo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-xl p-2 ring-1 ring-inset ring-zinc-200 hover:bg-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800"><Linkedin size={18} /></a>
             </div>
           </div>

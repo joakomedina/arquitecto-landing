@@ -1,5 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import alfredo from "../../assets/proyectos/AlfredoArvelo.jpg";
+
+const resolveImageSrc = (asset) => (typeof asset === "string" ? asset : asset?.src || "");
 
 export function About() {
     return (
@@ -49,7 +53,7 @@ export function About() {
                 >
                     <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
                         <img
-                            src={alfredo}
+                            src={resolveImageSrc(alfredo)}
                             alt="Alfredo Arvelo - Arquitecto"
                             className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                         />

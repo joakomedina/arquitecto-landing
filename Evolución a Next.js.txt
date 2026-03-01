@@ -1,0 +1,14 @@
+Evolución a Next.js 
+
+| Tema                                                        | React SPA (Vite)                                 | Next.js                                                             |
+| ----------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| Tipo                                                        | App de una sola página (CSR)                     | Framework React con SSR/SSG/ISR                                     |
+| SEO                                                         | ❌ Limitado (depende mucho de JS)                 | ✅ Muy fuerte (HTML pre-renderizado)                                 |
+| Performance percibida                                       | ✅ Muy buena en navegación interna                | ✅ Muy buena + mejor “first load” con SSG/SSR                        |
+| Blog                                                        | 🟡 Se puede, pero cuesta (rutas, markdown, etc.) | ✅ Natural (rutas, MDX, CMS)                                         |
+| Rutas                                                       | Manual con React Router                          | ✅ File-based routing (carpetas = URLs)                              |
+| Meta tags por página                                        | 🟡 Se puede pero es más trabajoso                | ✅ Muy fácil por página                                              |
+| Escalabilidad de contenido (servicios, ciudades, proyectos) | 🟡 Se puede, pero se vuelve artesanal            | ✅ Diseñado para crecer en páginas                                   |
+| Backend / API                                               | ❌ No trae                                        | ✅ API routes integradas                                             |
+| Complejidad                                                 | ✅ Baja                                           | 🟡 Media (pero ordena el proyecto)                                  |
+| Deploy                                                      | ✅ Fácil (estático)                               | ✅ Fácil (Vercel) / 🟡 VPS requiere Node corriendo o export estático |
