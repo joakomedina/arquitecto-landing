@@ -10,5 +10,5 @@ RUN npm run build
 
 # 2. Serve
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 80
