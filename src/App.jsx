@@ -8,7 +8,8 @@ import { About } from "./components/home/About";
 import { Contact } from "./components/home/Contact";
 import { SiteWrapper } from "./components/layout/SiteWrapper";
 
-const USE_LEGACY_LANDING = process.env.NEXT_PUBLIC_LANDING_VARIANT === "legacy";
+const USE_LEGACY_LANDING =
+  process.env.NODE_ENV !== "production" && process.env.NEXT_PUBLIC_LANDING_VARIANT === "legacy";
 
 function RefactorLanding() {
   const jump = (id) => {
