@@ -100,27 +100,25 @@ export function Portfolio() {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
           >
+            <button
+              onClick={() => setSelectedProject(null)}
+              aria-label="Cerrar modal"
+              className="fixed right-4 top-4 z-[60] rounded-full bg-white/95 p-2 text-zinc-900 shadow-lg backdrop-blur hover:bg-white dark:bg-zinc-900/95 dark:text-zinc-100"
+            >
+              <X size={20} />
+            </button>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-zinc-950"
+              className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl dark:bg-zinc-950"
             >
-              <div className="sticky top-0 z-10 flex justify-end p-4">
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  aria-label="Cerrar modal"
-                  className="rounded-full bg-white/90 p-2 text-zinc-900 shadow-lg backdrop-blur hover:bg-white dark:bg-zinc-900/90 dark:text-zinc-100"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-              <div className="relative -mt-16">
+              <div className="relative">
                 <img
                   src={resolveImageSrc(selectedProject.img)}
                   alt={selectedProject.title}
-                  className="h-72 w-full object-cover"
+                  className="h-56 w-full object-cover sm:h-72"
                 />
               </div>
               <div className="p-6 md:p-10">
@@ -154,12 +152,14 @@ export function Portfolio() {
                 )}
 
                 {selectedProject.slug && (
-                  <Link
-                    href={`/proyectos/${selectedProject.slug}/`}
-                    className="inline-flex rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
-                  >
-                    Ver proyecto completo
-                  </Link>
+                  <div className="sticky bottom-0 -mx-6 mt-6 border-t border-zinc-200 bg-white/95 p-4 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/95 md:-mx-10 md:px-10">
+                    <Link
+                      href={`/proyectos/${selectedProject.slug}/`}
+                      className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+                    >
+                      Ver proyecto completo
+                    </Link>
+                  </div>
                 )}
               </div>
             </motion.div>
