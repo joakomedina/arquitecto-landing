@@ -10,6 +10,7 @@ export function SiteWrapper({ children }) {
   const routeMap = {
     inicio: "/",
     proyectos: "/proyectos/",
+    blog: "/blog/",
     sobre: "/sobre/",
     servicios: "/servicios/",
     contacto: "/contacto/",
