@@ -24,6 +24,9 @@ export function Footer() {
           <Link href="/proyectos/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Proyectos
           </Link>
+          <Link href="/blog/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+            Blog
+          </Link>
           <Link href="/contacto/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Contacto
           </Link>

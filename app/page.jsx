@@ -1,4 +1,5 @@
 import App from "../src/App";
+import { getAllBlogPosts } from "../src/lib/blog.server";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alfredoarvelo.com";
 
@@ -20,6 +21,7 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  const blogPosts = getAllBlogPosts().slice(0, 5);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -35,7 +37,7 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <App />
+      <App blogPosts={blogPosts} />
     </>
   );
 }

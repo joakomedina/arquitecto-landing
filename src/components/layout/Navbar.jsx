@@ -43,6 +43,7 @@ export function Navbar({ onJump }) {
         <div className="hidden items-center gap-6 md:flex">
           <NavLink id="inicio">Inicio</NavLink>
           <NavLink id="proyectos">Proyectos</NavLink>
+          <NavLink id="blog">Blog</NavLink>
           <NavLink id="sobre">Sobre mi</NavLink>
           <NavLink id="servicios">Servicios</NavLink>
           <NavLink id="contacto">Contacto</NavLink>
@@ -70,6 +71,7 @@ export function Navbar({ onJump }) {
             {[
               { id: "inicio", label: "Inicio" },
               { id: "proyectos", label: "Proyectos" },
+              { id: "blog", label: "Blog" },
               { id: "sobre", label: "Sobre mi" },
               { id: "servicios", label: "Servicios" },
               { id: "contacto", label: "Contacto" },
