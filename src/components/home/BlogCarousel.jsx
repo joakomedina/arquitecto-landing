@@ -34,7 +34,7 @@ export function BlogCarousel({ posts = [] }) {
           </p>
         </div>
 
-        <Link href="/blog/" className="text-sm font-semibold text-zinc-800 underline-offset-4 hover:underline dark:text-zinc-200">
+        <Link href="/blog" className="text-sm font-semibold text-zinc-800 underline-offset-4 hover:underline dark:text-zinc-200">
           Ver todos
         </Link>
       </div>
@@ -60,7 +60,7 @@ export function BlogCarousel({ posts = [] }) {
 
             <div className="mt-6 flex items-center justify-between">
               <Link
-                href={`/blog/${current.slug}/`}
+                href={`/blog/${current.slug}`}
                 className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 Leer artículo

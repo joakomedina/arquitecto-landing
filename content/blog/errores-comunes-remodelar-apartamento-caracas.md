@@ -20,7 +20,7 @@ Remodelar un apartamento puede mejorar de forma radical tu calidad de vida y el 
 
 La mayoría de los problemas graves no aparecen por mala suerte, sino por decisiones incorrectas al inicio. Esta guía resume los errores que más se repiten en reformas residenciales en Caracas y cómo evitarlos.
 
-Si prefieres partir de soluciones con alcance más cerrado, revisa primero [servicios](/servicios/) y luego vuelve a esta lista como checklist de control.
+Si prefieres partir de soluciones con alcance más cerrado, revisa primero [servicios](/servicios) y luego vuelve a esta lista como checklist de control.
 
 ## Error 1: Empezar obra sin alcance técnico cerrado
 
@@ -190,7 +190,7 @@ Si no detalla partidas, no define exclusiones y no incluye cronograma, es un pre
 
 ### ¿Dónde puedo ver ejemplos de proyectos terminados?
 
-Puedes revisar casos en [proyectos](/proyectos/) para entender cómo se ve una ejecución con alcance bien definido.
+Puedes revisar casos en [proyectos](/proyectos) para entender cómo se ve una ejecución con alcance bien definido.
 
 ## Conclusión
 
@@ -200,6 +200,6 @@ Evitar estos 7 errores te permite transformar el apartamento con menos estrés y
 
 Si estás por iniciar tu proyecto, el mejor primer paso es un diagnóstico claro del alcance. Esa decisión evita la mayoría de los problemas que aparecen después.
 
-También te puede servir esta comparativa antes de decidir modelo de trabajo: [Llave en mano vs proyecto a medida](/blog/llave-en-mano-vs-proyecto-a-medida/).
+También te puede servir esta comparativa antes de decidir modelo de trabajo: [Llave en mano vs proyecto a medida](/blog/llave-en-mano-vs-proyecto-a-medida).
 
-Si quieres que revisemos tu caso puntual, puedes escribir desde [contacto](/contacto/) con medidas, fotos y objetivo de inversión.
+Si quieres que revisemos tu caso puntual, puedes escribir desde [contacto](/contacto) con medidas, fotos y objetivo de inversión.

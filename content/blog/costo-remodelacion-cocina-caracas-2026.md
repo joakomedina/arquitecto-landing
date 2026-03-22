@@ -20,7 +20,7 @@ Si estás evaluando una remodelación de cocina en Caracas, lo primero que neces
 
 Una cocina puede parecer "similar" a otra en fotos, pero cambiar herrajes, cubierta, iluminación o instalaciones modifica de forma importante el costo final. Por eso, la mejor forma de estimar es descomponer el proyecto en partidas, definir inclusiones y exclusiones, y alinear expectativas de tiempo.
 
-Si quieres un punto de partida comercial para comparar escenarios, puedes revisar los paquetes publicados en [servicios](/servicios/). Y si quieres validar cómo se traduce eso en obra real, puedes ver un caso ejecutado en [remodelación de cocina en vivienda unifamiliar](/proyectos/remodelacion-cocina-vivienda-unifamiliar/).
+Si quieres un punto de partida comercial para comparar escenarios, puedes revisar los paquetes publicados en [servicios](/servicios). Y si quieres validar cómo se traduce eso en obra real, puedes ver un caso ejecutado en [remodelación de cocina en vivienda unifamiliar](/proyectos/remodelacion-cocina-vivienda-unifamiliar).
 
 ## Qué define realmente el costo de una cocina
 
@@ -185,4 +185,4 @@ Si quieres una remodelación de cocina con menos estrés, enfócate en una sola 
 
 Si ya tienes medidas, fotos o plano del espacio, el siguiente paso lógico es un diagnóstico breve para definir qué escenario encaja mejor contigo: estándar, premium o proyecto a cotizar.
 
-Puedes pedirlo desde [contacto](/contacto/) o revisar primero el detalle de [servicios](/servicios/).
+Puedes pedirlo desde [contacto](/contacto) o revisar primero el detalle de [servicios](/servicios).

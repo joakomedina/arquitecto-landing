@@ -38,7 +38,7 @@ export function Hero({ onCTAClick }) {
                             Solicitar presupuesto <ArrowRight size={18} />
                         </button>
                         <Link
-                            href="/proyectos/"
+                            href="/proyectos"
                             className="rounded-2xl px-5 py-3 text-sm font-medium text-zinc-800 ring-1 ring-inset ring-zinc-300 transition hover:bg-zinc-100 dark:text-zinc-200 dark:ring-zinc-700 dark:hover:bg-zinc-800"
                         >
                             Ver proyectos

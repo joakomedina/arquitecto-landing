@@ -20,7 +20,7 @@ Una de las decisiones más importantes en una remodelación de cocina no es el c
 
 No hay una opción universalmente mejor. Hay una opción más adecuada según tu objetivo, tu espacio y tu tolerancia al riesgo en obra.
 
-Si estás en fase de evaluación, compara esta guía con la página de [servicios](/servicios/) para aterrizar las diferencias en propuestas reales.
+Si estás en fase de evaluación, compara esta guía con la página de [servicios](/servicios) para aterrizar las diferencias en propuestas reales.
 
 ## Qué significa realmente "llave en mano"
 
@@ -80,7 +80,7 @@ Suele ser la mejor opción si:
 
 En tu web actual, este enfoque se traduce en un paquete estandarizado con referencia de precio y alcance definidos.
 
-También suele funcionar bien cuando el inmueble será destinado a alquiler y necesitas reducir incertidumbre de ejecución, como en proyectos tipo [Loft Manhattan](/proyectos/loft-manhattan-campo-alegre/).
+También suele funcionar bien cuando el inmueble será destinado a alquiler y necesitas reducir incertidumbre de ejecución, como en proyectos tipo [Loft Manhattan](/proyectos/loft-manhattan-campo-alegre).
 
 ## Cuándo conviene proyecto a medida
 
@@ -144,7 +144,7 @@ Muchos clientes comparan solo el precio de entrada y no el costo total de ejecuc
 
 Un modelo aparentemente "más económico" puede terminar costando más si no tiene alcance bien definido. Por eso, el punto clave no es solo cuánto cuesta empezar, sino cuánto cuesta terminar bien.
 
-Para evitar ese error, revisa también los criterios de presupuesto de esta guía: [Costo de remodelación de cocina en Caracas en 2026](/blog/costo-remodelacion-cocina-caracas-2026/).
+Para evitar ese error, revisa también los criterios de presupuesto de esta guía: [Costo de remodelación de cocina en Caracas en 2026](/blog/costo-remodelacion-cocina-caracas-2026).
 
 ## Regla práctica para decidir en 15 minutos
 
@@ -189,4 +189,4 @@ La decisión correcta no es "qué opción suena mejor", sino qué opción respon
 
 Con un diagnóstico inicial bien hecho, esta decisión se vuelve mucho más simple y te ahorra meses de fricción en obra.
 
-Si quieres evaluarlo en tu caso real, pide un diagnóstico en [contacto](/contacto/) y define en una sola sesión qué modelo te conviene más.
+Si quieres evaluarlo en tu caso real, pide un diagnóstico en [contacto](/contacto) y define en una sola sesión qué modelo te conviene más.

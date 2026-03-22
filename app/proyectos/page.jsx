@@ -17,7 +17,7 @@ export const metadata = {
     "diseño de interiores contemporáneo",
   ],
   alternates: {
-    canonical: "/proyectos/",
+    canonical: "/proyectos",
   },
 };
 
@@ -73,7 +73,7 @@ export default function ProyectosPage() {
                         </p>
                       )}
                       <Link
-                        href={`/proyectos/${project.slug}/`}
+                        href={`/proyectos/${project.slug}`}
                         className="mt-4 inline-block text-sm font-semibold text-zinc-800 underline-offset-4 hover:underline dark:text-zinc-200"
                       >
                         Ver proyecto completo
@@ -106,7 +106,7 @@ export default function ProyectosPage() {
           </article>
         </div>
         <div className="mt-6">
-          <Link href="/contacto/" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
+          <Link href="/contacto" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
             Solicitar presupuesto
           </Link>
         </div>
