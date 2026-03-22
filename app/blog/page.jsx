@@ -16,7 +16,7 @@ export const metadata = {
     "presupuesto remodelación vivienda",
   ],
   alternates: {
-    canonical: "/blog/",
+    canonical: "/blog",
   },
 };
 
@@ -59,7 +59,7 @@ export default function BlogPage() {
               key={post.slug}
               className="overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <Link href={`/blog/${post.slug}/`} className="block">
+              <Link href={`/blog/${post.slug}`} className="block">
                 <img
                   src={post.cover}
                   alt={post.coverAlt}
@@ -77,7 +77,7 @@ export default function BlogPage() {
                 </div>
 
                 <h2 className="font-serif text-2xl font-medium leading-tight text-zinc-900 dark:text-zinc-100">
-                  <Link href={`/blog/${post.slug}/`} className="hover:underline">
+                  <Link href={`/blog/${post.slug}`} className="hover:underline">
                     {post.title}
                   </Link>
                 </h2>
@@ -85,7 +85,7 @@ export default function BlogPage() {
                 <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{post.excerpt}</p>
 
                 <Link
-                  href={`/blog/${post.slug}/`}
+                  href={`/blog/${post.slug}`}
                   className="mt-5 inline-flex text-sm font-semibold text-zinc-800 underline-offset-4 hover:underline dark:text-zinc-200"
                 >
                   Leer artículo

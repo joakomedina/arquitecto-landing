@@ -13,7 +13,7 @@ export const metadata = {
     "contacto estudio de arquitectura Caracas",
   ],
   alternates: {
-    canonical: "/contacto/",
+    canonical: "/contacto",
   },
 };
 
@@ -46,7 +46,7 @@ export default function ContactoPage() {
         <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
           Antes de escribir, puedes revisar el tipo de resultados entregados en el portafolio de obras recientes.
         </p>
-        <Link href="/proyectos/" className="mt-3 inline-block text-sm font-semibold text-zinc-800 underline hover:text-zinc-900 dark:text-zinc-200">
+        <Link href="/proyectos" className="mt-3 inline-block text-sm font-semibold text-zinc-800 underline hover:text-zinc-900 dark:text-zinc-200">
           Ver proyectos recientes
         </Link>
       </section>

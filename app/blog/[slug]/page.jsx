@@ -24,12 +24,12 @@ export async function generateMetadata({ params }) {
     description: post.description,
     keywords: post.keywords,
     alternates: {
-      canonical: `/blog/${post.slug}/`,
+      canonical: `/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `${siteUrl}/blog/${post.slug}/`,
+      url: `${siteUrl}/blog/${post.slug}`,
       type: "article",
       images: [
         {
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }) {
       url: siteUrl,
     },
     image: [post.cover],
-    mainEntityOfPage: `${siteUrl}/blog/${post.slug}/`,
+    mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
   };
 
   return (
@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }) {
 
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-8">
         <div className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
-          <Link href="/blog/" className="hover:underline">
+          <Link href="/blog" className="hover:underline">
             Blog
           </Link>{" "}
           / <span>{post.title}</span>
@@ -131,11 +131,11 @@ export default async function BlogPostPage({ params }) {
             Podemos revisar tu caso y definir una ruta clara de alcance, tiempos y presupuesto para tu remodelación.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contacto/" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
+            <Link href="/contacto" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
               Solicitar diagnóstico
             </Link>
             <Link
-              href="/servicios/"
+              href="/servicios"
               className="rounded-xl border border-zinc-300 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
             >
               Ver servicios
@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }) {
             {relatedPosts.map((related) => (
               <Link
                 key={related.slug}
-                href={`/blog/${related.slug}/`}
+                href={`/blog/${related.slug}`}
                 className="rounded-xl border border-zinc-200/70 p-4 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"
               >
                 <p className="text-xs text-zinc-500 dark:text-zinc-400">{related.category}</p>

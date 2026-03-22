@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
     description: project.intro || `${project.title} - ${project.category} en ${project.location}.`,
     keywords: PROJECT_KEYWORDS[project.slug] || [],
     alternates: {
-      canonical: `/proyectos/${project.slug}/`,
+      canonical: `/proyectos/${project.slug}`,
     },
   };
 }
@@ -69,7 +69,7 @@ export default async function ProyectoDetallePage({ params }) {
     <SiteWrapper>
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-8">
         <div className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
-          <Link href="/proyectos/" className="hover:underline">
+          <Link href="/proyectos" className="hover:underline">
             Proyectos
           </Link>{" "}
           / <span>{project.title}</span>

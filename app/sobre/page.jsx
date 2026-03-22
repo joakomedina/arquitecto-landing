@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Perfil profesional de Alfredo Arvelo, arquitecto en Caracas especializado en vivienda, interiorismo y reformas residenciales.",
   alternates: {
-    canonical: "/sobre/",
+    canonical: "/sobre",
   },
 };
 
@@ -42,11 +42,11 @@ export default function SobrePage() {
           </p>
         </div>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/proyectos/" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
+          <Link href="/proyectos" className="rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:bg-zinc-800">
             Ver proyectos
           </Link>
           <Link
-            href="/contacto/"
+            href="/contacto"
             className="rounded-xl border border-zinc-300 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
             Contactar

@@ -15,19 +15,19 @@ export function Footer() {
           <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Inicio
           </Link>
-          <Link href="/servicios/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+          <Link href="/servicios" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Servicios
           </Link>
-          <Link href="/sobre/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+          <Link href="/sobre" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Sobre
           </Link>
-          <Link href="/proyectos/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+          <Link href="/proyectos" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Proyectos
           </Link>
-          <Link href="/blog/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+          <Link href="/blog" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Blog
           </Link>
-          <Link href="/contacto/" className="hover:text-zinc-900 dark:hover:text-zinc-300">
+          <Link href="/contacto" className="hover:text-zinc-900 dark:hover:text-zinc-300">
             Contacto
           </Link>
         </div>

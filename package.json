@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start": "next start",
     "lint": "eslint app src eslint.config.js",
-    "preview": "npx serve out"
+    "preview": "next start"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

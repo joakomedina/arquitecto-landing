@@ -82,7 +82,7 @@ export function Portfolio() {
               </p>
               {p.slug && (
                 <Link
-                  href={`/proyectos/${p.slug}/`}
+                  href={`/proyectos/${p.slug}`}
                   onClick={(e) => e.stopPropagation()}
                   className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-zinc-700 underline-offset-4 hover:underline dark:text-zinc-200"
                 >
@@ -154,7 +154,7 @@ export function Portfolio() {
                 {selectedProject.slug && (
                   <div className="sticky bottom-0 -mx-6 mt-6 border-t border-zinc-200 bg-white/95 p-4 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/95 md:-mx-10 md:px-10">
                     <Link
-                      href={`/proyectos/${selectedProject.slug}/`}
+                      href={`/proyectos/${selectedProject.slug}`}
                       className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
                     >
                       Ver proyecto completo
