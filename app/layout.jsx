@@ -1,6 +1,11 @@
 import "./globals.css";
+import arquitectoOgImage from "../src/data/fotos-projects/Arquitecto-Alfredo-Arvelo.png";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alfredoarvelo.com";
+const socialImage = {
+  url: arquitectoOgImage.src,
+  alt: "Alfredo Arvelo Arquitectura",
+};
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,12 +34,14 @@ export const metadata = {
     title: "Alfredo Arvelo | Arquitectura e Interiorismo",
     description:
       "Estudio de arquitectura en Caracas especializado en remodelaciones residenciales e interiorismo.",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alfredo Arvelo | Arquitectura e Interiorismo",
     description:
       "Estudio de arquitectura especializado en vivienda, interiorismo y proyectos comerciales en Caracas.",
+    images: [socialImage.url],
   },
   robots: {
     index: true,
