@@ -1,5 +1,5 @@
 import "./globals.css";
-import arquitectoOgImage from "../src/data/fotos-projects/Arquitecto-Alfredo-Arvelo.png";
+import arquitectoOgImage from "../src/data/fotos-projects/Diseño-y-remodelacion-en-caracas.png";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alfredoarvelo.com";
 const socialImage = {
