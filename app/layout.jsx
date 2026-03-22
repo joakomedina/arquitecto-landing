@@ -1,10 +1,11 @@
 import "./globals.css";
-import arquitectoOgImage from "../src/data/fotos-projects/Diseño-y-remodelacion-en-caracas.png";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alfredoarvelo.com";
 const socialImage = {
-  url: arquitectoOgImage.src,
-  alt: "Alfredo Arvelo Arquitectura",
+  url: "/og/alfredo-arvelo-og.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Diseno y remodelacion en Caracas - Alfredo Arvelo Arquitectura",
 };
 
 export const metadata = {
