@@ -22,11 +22,16 @@ ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
-COPY --from=build /app/package*.json ./
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
-COPY --from=build /app/content ./content
+COPY --from=build --chown=node:node /app/package*.json ./
+COPY --from=build --chown=node:node /app/node_modules ./node_modules
+COPY --from=build --chown=node:node /app/.next ./.next
+COPY --from=build --chown=node:node /app/public ./public
+COPY --from=build --chown=node:node /app/content ./content
+# Sin este archivo, next start ignora la configuración (images.unoptimized, poweredByHeader)
+COPY --from=build --chown=node:node /app/next.config.mjs ./
+
+# No ejecutar la web como root
+USER node
 
 EXPOSE 3000
 
